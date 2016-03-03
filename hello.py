@@ -1,4 +1,4 @@
-from cgi import parse_qs, escape
+import urlparse
 
 def app(environ, start_response):
     """Simplest possible application object"""
@@ -7,4 +7,10 @@ def app(environ, start_response):
         ('Content-type','text/plain')
     ]
     start_response(status, response_headers)
-    return iter(environ['QUERY_STRING'])
+    query = environ['QUERY_STRING']
+    query = query.split('&')
+    array = []
+    for item in query:
+        item += "\n"
+        array.append(item)
+    return array
