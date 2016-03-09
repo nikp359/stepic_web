@@ -1,2 +1,2 @@
 #!/bin/bash
-gunicorn --config ../etc/hello.py ask.wsgi:application
+gunicorn --config ./gunicorn_ask.py ask.wsgi:application
